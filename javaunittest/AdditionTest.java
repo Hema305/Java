@@ -17,7 +17,12 @@ private AdditionOfTwoNumbers AddingNumbers;
 		int answer=AddingNumbers.additionOfNumbers(123,23);
 		assertEquals(146, answer);
 	}
-
+	@Test
+	public void twoNegativeNumbers()
+	{
+		int answer=AddingNumbers.additionOfNumbers(-123,-23);
+		assertEquals(-146, answer);
+	}
 	
 
 }
