@@ -2,10 +2,10 @@
 public class EmployeeSalaryServices {
 private int monthlyBasic;
 private String name;
-int medicalAllowance=1250;
-int conveyanceAllowance=800; 
-static int providentFund;
-static float PFRate;
+private int medicalAllowance=1250;
+private int conveyanceAllowance=800; 
+private static int providentFund;
+private static float PFRate;
 	public int employeeAnualSalary() //getAnnualBasic() //(return 12 * monthlyBasic;)
 	{
 		
