@@ -1,11 +1,11 @@
 
 public class TelevisionFunctionality {
-	static String state="";
-	static int volume=0;
-	static String channels[]={"Pogo","CN","TV9","STAR MAA"};
-	static String channel="";
-	static String currentChannelAndVolume="";
-	static int count=0;
+	private static String state="";
+	private static int volume=0;
+	private static String channels[]={"Pogo","CN","TV9","STAR MAA"};
+	private static String channel="";
+	private static String currentChannelAndVolume="";
+	private static int count=0;
 	public TelevisionFunctionality(String string, String string2, int i)//constructor for state
 	{
 		// TODO Auto-generated constructor stub
