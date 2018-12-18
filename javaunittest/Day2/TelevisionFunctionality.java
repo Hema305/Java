@@ -1,14 +1,20 @@
 
 public class TelevisionFunctionality {
-	String state="";
+	static String state="";
 	static int volume=0;
-	String channel;
+	static String channels[]={"Pogo","CN","TV9","STAR MAA"};
+	static String channel="";
 	static String currentChannelAndVolume="";
+	static int count=0;
 	public TelevisionFunctionality(String string, String string2, int i)//constructor for state
 	{
 		// TODO Auto-generated constructor stub
 		this.state=string;
-		this.channel=string2;
+		for(int i1=0;i1<channels.length;i1++)
+		{
+			this.channel=string2;
+		}
+	
 		this.volume=i;
 	}
 	public static boolean TelivisionFunctionalityCheck(
@@ -60,6 +66,65 @@ public class TelevisionFunctionality {
 		}
 		
 		return volume;
+	}
+	public static String TelevisionChannelChangeUp(
+			TelevisionFunctionality televisionStateCheck) {
+		if(televisionStateCheck.state=="ON")
+		{
+		
+		
+				channel=channels[++count];
+			
+		}
+		
+		return channel;
+	}
+	public static String TelevisionChannelChangeDown(
+			TelevisionFunctionality televisionStateCheck) {
+		if(televisionStateCheck.state=="ON")
+		{
+		
+		
+				channel=channels[--count];
+			
+		}
+		
+		return channel;
+	}
+	public static String TelevisionCurrentChannel(
+			TelevisionFunctionality televisionStateCheck) {
+		
+		if(televisionStateCheck.state=="ON")
+		{
+		
+		
+				channel=channels[count];
+			
+		}
+		
+		return channel;
+	}
+	public static int TelevisionCurrentVolume(
+			TelevisionFunctionality televisionStateCheck) {
+		if(televisionStateCheck.state=="ON")
+		{
+		
+			volume=televisionStateCheck.volume;
+		}
+		else
+		{
+			volume=0;
+		}
+		
+		return volume;
+	}
+	public static String TelevisionTurnOnOrOff(
+			TelevisionFunctionality televisionStateCheck) {
+		if(state=="OFF")
+			state="ON";
+		else
+			state="OFF";
+		return state;
 	}
 	
 }
