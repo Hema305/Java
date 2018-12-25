@@ -21,17 +21,18 @@ import org.junit.Test;
 public class SavingAccountTest {
 	private SavingAccount savingaccount1,savingaccount2,savingaccount3,savingaccount4,savingaccount5;
 	private BankAccountList savingaccountOne,savingaccountTwo,savingaccountThree,savingaccountFour,savingaccountFive;
+	String result="",resultTwo="";
 	List<SavingAccount> al = new ArrayList<SavingAccount>();
 		@Before
 		public void setUp(){
 			savingaccount1 = new SavingAccount(80000,123,"Hema",true);
 			savingaccount2 = new SavingAccount(90000,124,"Latha",false);
-			savingaccount3 = new SavingAccount(60000,125,"Bindu",true);
+			savingaccount3 = new SavingAccount(60000,120,"Bindu",true);
 			savingaccount4 = new SavingAccount(19000,126,"Bhanu",false);
 			savingaccount5 = new SavingAccount(70000,126,"Chanti",true);
 			savingaccountOne = new BankAccountList(80000,123,"Hema",true);
 			savingaccountTwo = new BankAccountList(90000,124,"Latha",false);
-			savingaccountThree = new BankAccountList(60000,125,"Bindu",true);
+			savingaccountThree = new BankAccountList(60000,120,"Bindu",true);
 			savingaccountFour = new BankAccountList(19000,126,"Bhanu",false);
 			savingaccountFive = new BankAccountList(70000,126,"Chanti",true);
 	
@@ -55,13 +56,15 @@ public class SavingAccountTest {
 					oos.writeObject(savingAccount2);
 					oos.close();
 				}
-				System.out.println("---------displaying details from reading file--------");
+				//System.out.println("---------displaying details from reading file--------");
 				for (SavingAccount savingAccount2 : al) {
 					ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:\\Users\\hmotupal\\Desktop\\Java_Assignments\\UnitTesting\\src\\com\\jaha.txt"));
 					SavingAccount savingAccount=(SavingAccount) ois.readObject();
 					ois.close();
-					System.out.println(savingAccount2+"\n");
+					result+=savingAccount2;
 				}
+				String expected="SavingAccount [accountbalance=80000.0, accountid=123, accountholdername=Hema, issalariedaccount=true]SavingAccount [accountbalance=90000.0, accountid=124, accountholdername=Latha, issalariedaccount=false]SavingAccount [accountbalance=60000.0, accountid=120, accountholdername=Bindu, issalariedaccount=true]SavingAccount [accountbalance=19000.0, accountid=126, accountholdername=Bhanu, issalariedaccount=false]SavingAccount [accountbalance=70000.0, accountid=126, accountholdername=Chanti, issalariedaccount=true]";
+				assertEquals(expected, result);
 		}
 		
 		@Test
@@ -72,10 +75,14 @@ public class SavingAccountTest {
 				alist.add(savingaccountThree);
 				alist.add(savingaccountFour);
 				alist.add(savingaccountFive);
-				System.out.println("--------based on account_id without dupictes----------");
+			//	System.out.println("--------based on account_id without dupictes----------");
 				for (BankAccountList savingAccountList : alist) {
-					System.out.println(savingAccountList+"\n");
+					resultTwo+=savingAccountList;
 				}
+					String expectedResult="BankAccountList [accountbalance=60000.0, accountid=120, accountholdername=Bindu, issalariedaccount=true]BankAccountList [accountbalance=80000.0, accountid=123, accountholdername=Hema, issalariedaccount=true]BankAccountList [accountbalance=90000.0, accountid=124, accountholdername=Latha, issalariedaccount=false]BankAccountList [accountbalance=19000.0, accountid=126, accountholdername=Bhanu, issalariedaccount=false]";
+					assertEquals(expectedResult, resultTwo);
+					
+				
 
 		}
 }
