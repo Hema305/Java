@@ -18,7 +18,7 @@ Add all the names of our class students randomly to a collection, iterate throug
  */
 
 public class StudentsTest {
-private Students studentDetails;
+
 private LinkedHashSet<String> studentsNames=new LinkedHashSet<String>();//LinkedHashSet is used for maintain Insertion order
 	@Test
 	public void studentDetailsIngivenOrderTest() {
